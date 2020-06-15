@@ -24,7 +24,7 @@
 - [K5](#k5)
   - [Vergleich Vorwissen - Wissenszuwachs](#vergleich-vorwissen---wissenszuwachs)
   - [Reflexion](#reflexion)
-_
+
 
 K1
 ==========
@@ -223,7 +223,8 @@ Client-Installation auf [dieser](https://git-scm.com/downloads) Seite herunterge
 
 *SSH Zugriff auf VM*
 
-SSH Zugriff auf VM:```shell
+SSH Zugriff auf VM:
+```shell
 vagrant ssh
 ```
 
