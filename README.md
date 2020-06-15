@@ -14,8 +14,6 @@
 - [K3](#k3)
   - [Testen](#testen)
     - [Apache](#apache)
-    - [Users and Groups](#users-and-groups)
-    - [Ports](#ports)
 - [K4](#k4)
   - [Firewall](#firewall)
   - [Reverse-Proxy](#reverse-proxy)
@@ -227,4 +225,133 @@ SSH Zugriff auf VM:
 ```shell
 vagrant ssh
 ```
+K2
+======
+
+
+## Eigene Lernumgebung
+> [⇧ *Nach oben*](#inhaltsverzeichnis)
+
+*Github Account erstellt*
+1. Auf [GitHub.com](https://github.com) gehen
+2. Auf *Sign up* klicken
+3. Username, E-mail und Passwort eingeben sowie Aufgabe zum verifizieren lösen
+4. Auf *Create an Account* klicken
+
+*Mark Down Extension Visual Studio Code hinzufügen*
+1. Virtual Studio Code öffnen
+2. *CTRL* + *SHIFT* + *X* drücken und nach Mark Down suchene. 
+3. Auf *install* klicken.
+
+K3
+======
+
+
+> [⇧ *Nach oben*](#inhaltsverzeichnis)
+## Vagrant
+
+*Vagrant Befehle*
+
+
+| Befehl              | Funktion       |
+| ------------------- | -------------- |
+| `vagrant init`      | Dadurch wird das aktuelle Verzeichnis als Vagrant-Umgebung initialisiert|
+| `vagrant up`        | Dieser Befehl startet den Gast-Rechner/Virtuelle Maschine.|
+| `vagrant ssh`       | Dadurch wird SSH in einen laufenden Vagrant-Rechner eingespielt und man erhält Zugriff auf die Shell.|
+| `vagrant status`    | Dadruch wird der aktuelle Status des Gastrechners angezeigt. |
+| `vagrant shutdoown` | Dadurch wird der Gast-Rechner heruntergefahren. |
+| `vagrant destroy`   | Dadurch werden alle Ressourcen, die erstellt wurden zum Gast-Rechner und der Gast-Rechner selbst gelöscht.|
+
+*Testen*
+
+Apache
+- index.html file ändern und schauen ob die Änderung übernommen wurde.
+- Im Webbrowser überprüfen.
+
+K4
+======
+
+> [⇧ *Nach oben*](#inhaltsverzeichnis)
+ 
+## Firewall
+
+  *Automatisch Firewall Regeln erstellt, indem die Zeilen ins Vagrantfile eingefügt werden*
+
+1. Vagrantfile öffnen
+2. Folgende Zeilen einfügen:
+    Shell
+      sudo apt-get install ufw
+      sudo ufw allow 80/tcp
+      sudo ufw allow 22/tcp
+      sudo ufw allow out 22/tcp 
+      sudo ufw enable
+     
+
+## Reverse-Proxy
+*Automatisch einen Reverse-Proxy installieren, indem die Zeilen ins Vagrantfile eingefügt werden*
+1. Vagrantfile öffnen
+2. Folgende Zeilen einfügen:
+    Shell
+    sudo apt-get -y install libapache2-mod-proxy-html
+    sudo apt-get -y install libxml2-dev
+
+    sudo a2enmod proxy
+    sudo a2enmod proxy_html
+    sudo a2enmod proxy_http
+     
+
+## Benutzer und Rechtevergabe
+
+*Automatisch User mit Passwort erstellt, indem die Zeilen ins Vagrantfile eingefügt werden*
+
+1. Vagrantfile öffnen
+2. Folgende Zeilen einfügen:
+    Shell
+      sudo groupadd testadmin
+      sudo useradd user1 -g testadmin -m -s /bin/bash 
+      sudo useradd user2 -g testadmin -m -s /bin/bash 
+      sudo chpasswd <<<user1:abc123	
+      sudo chpasswd <<<user2:abc123
+    
+## SSH
+
+*Automatisch ein SSH Zugang erstellt, indem die Zeilen ins Vagrantfile eingefügt werden*
+
+1. Vagrantfile öffnen  
+2. Folgende Zeilen einfügen:
+    Shell
+      sudo apt-get -y install openssh-server
+    
+K5
+======
+
+> [⇧ *Nach oben*](#inhaltsverzeichnis)
+ 
+
+## Persöhnliche Lernentwicklung
+
+*Bereits bekannt*
+
+- Virtualisierungen mit Linux und Windows kannte ich schon zuvor da ich auch im Geschäft mit der Virtualisierung arbeite, aber natürlich nicht wie in der Schule, da wir im Betrieb viele Einschränkungen haben.
+- Virtualbox kannte ich von vorherigen ÜK Modulen.
+
+*Gelerent in diesem Modul*
+
+
+ - Vagrante kannte ich nicht und ist für mich neu.
+ - Auch mit Markdown bin ich zuvor nicht in Berührung gekommen.
+ - Github ist auch neu für mich.
+
+*Fazit*
+
+Ich habe in diesem Modul sehr viel gelernt im Bezug auf die automatisierte Virtualisierung und wie man dies aufsetzen kann. In meinem nächstem Team kann ich dieses Wissen sicherlich brauchen, da wir in einer Cloud Testing anbieten und es wäre sicherlich intelligent Browser Testing auf einer VM zu machen, welche automatisiert aufgesetzt wurde von Vagrant.
+
+## Reflexion
+Zu Beginn hatte ich start Probleme, da ich das ganze nicht richtig verstanden habe. Zum Glück gab es die Anleitung von Herr Rohr und natürlich auch meine Mitschüler. Ich hatte leider bei mehreren Sachen Schwierigkeiten bei diesem Modul. Ich hatte probleme mit dem Responsitory, dieses kann irgendwie nicht lokal abgespeichert werde konnte und beim automatisiertem VM aufsetzen wusste ich nicht wie genau das Vagrantfile ändern, aber dies funktionierte dann nach langer google recherche. 
+
+
+
+
+
+
 
