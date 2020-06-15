@@ -17,7 +17,6 @@
 - [K4](#k4)
   - [Firewall](#firewall)
   - [Reverse-Proxy](#reverse-proxy)
-  - [Benutzer und Rechtevergabe](#benutzer-und-rechtevergabe)
   - [SSH](#ssh)
 - [K5](#k5)
   - [Vergleich Vorwissen - Wissenszuwachs](#vergleich-vorwissen---wissenszuwachs)
